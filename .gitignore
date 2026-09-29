@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+venv*/
+
+# Downloaded ASR models
+deepspeech-*.pbmm
+deepspeech-*.scorer
+vosk-model*/
+
+# Local datasets and generated benchmark results
+/data/audio/*
+!/data/audio/.gitkeep
+/data/references_asr/*
+!/data/references_asr/.gitkeep
+/data/references_mt/*
+!/data/references_mt/.gitkeep
+/results/*
+!/results/.gitkeep
