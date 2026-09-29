@@ -85,6 +85,31 @@ python controller.py
 การประเมิน pipeline ต้องมีทั้ง transcript ภาษาอังกฤษและคำแปลอ้างอิงภาษาไทย
 สำหรับทุกไฟล์เสียง
 
+## เตรียมข้อมูลจาก corpus
+
+หากใช้ corpus ที่มีโฟลเดอร์ `audios/` และไฟล์ `ss-corpus-en.tsv` สามารถใช้
+`prepare_data.py` เพื่อคัดลอกไฟล์เสียงและสร้าง transcript ภาษาอังกฤษกับไฟล์
+คำแปล placeholder:
+
+```bash
+python prepare_data.py
+```
+
+โดยค่าเริ่มต้นสคริปต์จะมองหา corpus ในโฟลเดอร์ `sps-corpus-4.0-2026-06-12-en`
+ใต้ Desktop หากเก็บไว้ที่อื่น ให้กำหนดตัวแปร `ASR_MT_CORPUS_DIR` เป็น path
+ของ corpus ก่อนรัน ตัวแปร `NUM_FILES` ในสคริปต์กำหนดจำนวนไฟล์ที่จะเตรียม
+
+`translate_references.py` ลบแท็ก disfluency/เสียงรบกวนจาก transcript แล้ว
+แปลข้อความเป็นภาษาไทยผ่าน Google Translate และเขียนทับไฟล์อ้างอิง MT:
+
+```bash
+python translate_references.py
+```
+
+สคริปต์นี้ส่งข้อความไปยังบริการแปลภายนอก และแก้ไขไฟล์ใน
+`data/references_asr/` และ `data/references_mt/` โดยตรง ควรสำรองข้อมูลและ
+ตรวจสอบคำแปลก่อนใช้ประเมินผล
+
 ## โครงสร้างโปรเจกต์
 
 ```text

@@ -18,3 +18,4 @@ gputil
 requests
 pandas
 tqdm
+deep-translator
